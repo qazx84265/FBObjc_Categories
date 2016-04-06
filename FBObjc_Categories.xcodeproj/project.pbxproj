@@ -58,6 +58,7 @@
 		EC4F5FEC1CB49F2A00E3DB4E /* FBObjc_Categories */ = {
 			isa = PBXGroup;
 			children = (
+				EC4F60041CB4A11A00E3DB4E /* Categories */,
 				EC4F5FF01CB49F2A00E3DB4E /* AppDelegate.h */,
 				EC4F5FF11CB49F2A00E3DB4E /* AppDelegate.m */,
 				EC4F5FF31CB49F2A00E3DB4E /* ViewController.h */,
@@ -77,6 +78,13 @@
 				EC4F5FEE1CB49F2A00E3DB4E /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EC4F60041CB4A11A00E3DB4E /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
