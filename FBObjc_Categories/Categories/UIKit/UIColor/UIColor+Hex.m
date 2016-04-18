@@ -8,10 +8,10 @@
 
 #import "UIColor+Hex.h"
 
-
+#ifdef DEBUG
 #define kColorConvertErrorHexStringFormat  @"Wrong hex string format.  Use like this:'0x1a2b3c' or '#1a2b3c' or '1a2b3c'"
 #define kColorConvertErrorAlphaFormat      @"Wrong alpha value. Must be in [0.0, 1.0], otherwise will be set to 1.0"
-
+#endif
 
 CGFloat colorComponentFrom(NSString *string, NSUInteger start, NSUInteger length) {
     NSString *substring = [string substringWithRange:NSMakeRange(start, length)];
@@ -63,17 +63,23 @@ CGFloat colorComponentFrom(NSString *string, NSUInteger start, NSUInteger length
                 _red = (hexValue & 0x0000FF)/255.0;
             }
         } else {
+#ifdef DEBUG
             NSLog(kColorConvertErrorHexStringFormat);
+#endif
         }
     } else {
+#ifdef DEBUG
         NSLog(kColorConvertErrorHexStringFormat);
+#endif
     }
     
     //alpha
     if (alpha >= 0.0 && alpha <= 1.0) {
         _alpha = alpha;
     } else {
+#ifdef DEBUG
         NSLog(kColorConvertErrorAlphaFormat);
+#endif
     }
     
     return [self initWithRed:_red green:_green blue:_blue alpha:_alpha];

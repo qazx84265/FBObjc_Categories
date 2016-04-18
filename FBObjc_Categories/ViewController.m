@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Categories/Foundation/NSData/NSData+Extends.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    NSString *str = @"Encrypt test.";
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"origin: ------->>>>>> %@", data);
+    
+    NSData *data1 = [data encryptedWithAESCBCUsingKey:@"123" andIV:data];
+    NSLog(@"encrypted: ------->>>>>> %@", data1);
+    
+    NSData *data2 = [data1 decryptedWithAESCBCUsingKey:@"123" andIV:data];
+    NSLog(@"decrypted: ------->>>>>> %@", data2);
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

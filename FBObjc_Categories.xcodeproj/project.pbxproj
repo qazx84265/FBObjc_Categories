@@ -13,6 +13,7 @@
 		EC4F5FF81CB49F2A00E3DB4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC4F5FF61CB49F2A00E3DB4E /* Main.storyboard */; };
 		EC4F5FFA1CB49F2A00E3DB4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC4F5FF91CB49F2A00E3DB4E /* Assets.xcassets */; };
 		EC4F5FFD1CB49F2A00E3DB4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC4F5FFB1CB49F2A00E3DB4E /* LaunchScreen.storyboard */; };
+		EC8B9C001CC4863A00F6EC6F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8B9BFF1CC4863A00F6EC6F /* libz.tbd */; };
 		ECD100001CC0F6B100AF9D94 /* UIImage+Merge.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FEB91CC0F6B000AF9D94 /* UIImage+Merge.m */; };
 		ECD100011CC0F6B100AF9D94 /* UIImage+Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FEBB1CC0F6B000AF9D94 /* UIImage+Orientation.m */; };
 		ECD100021CC0F6B100AF9D94 /* UIImage+PDF.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FEBD1CC0F6B000AF9D94 /* UIImage+PDF.m */; };
@@ -240,6 +241,8 @@
 		EC4F5FF91CB49F2A00E3DB4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC4F5FFC1CB49F2A00E3DB4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC4F5FFE1CB49F2A00E3DB4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC8B9BFE1CC4840000F6EC6F /* NSData+Extends.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Extends.h"; sourceTree = "<group>"; };
+		EC8B9BFF1CC4863A00F6EC6F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		ECD1005E1CC0F6F300AF9D94 /* UIColor+Extends.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extends.h"; sourceTree = "<group>"; };
 		ECD1FDA71CC0F6B000AF9D94 /* NSArray+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Block.h"; sourceTree = "<group>"; };
 		ECD1FDA81CC0F6B000AF9D94 /* NSArray+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Block.m"; sourceTree = "<group>"; };
@@ -675,6 +678,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC8B9C001CC4863A00F6EC6F /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +688,7 @@
 		EC4F5FE11CB49F2A00E3DB4E = {
 			isa = PBXGroup;
 			children = (
+				EC8B9C011CC4864500F6EC6F /* Frameworks */,
 				EC4F5FEC1CB49F2A00E3DB4E /* FBObjc_Categories */,
 				EC4F5FEB1CB49F2A00E3DB4E /* Products */,
 			);
@@ -729,6 +734,14 @@
 				ECD1FE5A1CC0F6B000AF9D94 /* UIKit */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		EC8B9C011CC4864500F6EC6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC8B9BFF1CC4863A00F6EC6F /* libz.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		ECD1FDA51CC0F6B000AF9D94 /* Foundation */ = {
@@ -799,6 +812,7 @@
 				ECD1FDBA1CC0F6B000AF9D94 /* NSData+SDDataCache.m */,
 				ECD1FDBB1CC0F6B000AF9D94 /* NSData+zlib.h */,
 				ECD1FDBC1CC0F6B000AF9D94 /* NSData+zlib.m */,
+				EC8B9BFE1CC4840000F6EC6F /* NSData+Extends.h */,
 			);
 			path = NSData;
 			sourceTree = "<group>";

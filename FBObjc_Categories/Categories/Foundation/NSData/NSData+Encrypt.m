@@ -22,7 +22,7 @@
 
 
 - (NSData*)encryptedWithAESECBUsingKey:(NSString *)key andIV:(NSData *)iv {
-    return [self aesUsingKey:key iv:iv opt:kCCDecrypt mode:kCCModeECB];
+    return [self aesUsingKey:key iv:iv opt:kCCEncrypt mode:kCCModeECB];
 }
 
 
@@ -33,29 +33,35 @@
 
 
 - (NSData*)aesUsingKey:(NSString*)key iv:(NSData*)iv opt:(CCOperation)opt mode:(CCMode)mode {
-    NSData *keyData = [key dataUsingEncoding:NSUTF8StringEncoding];
     
-    size_t dataMoved;
-    NSMutableData *encryptedData = [NSMutableData dataWithLength:self.length + kCCBlockSizeAES128];
+    char keyPtr[kCCKeySizeAES256+1];
+    bzero(keyPtr, sizeof(keyPtr));
+    [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
     
-    CCCryptorStatus status = CCCrypt(opt,                    // kCCEncrypt or kCCDecrypt
-                                     kCCAlgorithmAES128,
-                                     mode==kCCModeCBC?kCCOptionPKCS7Padding:kCCOptionPKCS7Padding|kCCOptionECBMode,         // Padding option, CBC or ECB Mode
-                                     keyData.bytes,
-                                     keyData.length,
-                                     iv.bytes,
-                                     self.bytes,
-                                     self.length,
-                                     encryptedData.mutableBytes,    // encrypted data out
-                                     encryptedData.length,
-                                     &dataMoved);                   // total data moved
+    NSUInteger dataLength = [self length];
+    size_t bufferSize = dataLength + kCCBlockSizeAES128;
+    void *buffer = malloc(bufferSize);
     
-    if (status == kCCSuccess) {
-        encryptedData.length = dataMoved;
-        return encryptedData;
+    size_t numBytesEncrypted = 0;
+    
+    CCCryptorStatus cryptStatus = CCCrypt(opt,
+                                          kCCAlgorithmAES128,
+                                          mode==kCCModeCBC?kCCOptionPKCS7Padding:kCCOptionPKCS7Padding|kCCOptionECBMode,
+                                          keyPtr,
+                                          kCCBlockSizeAES128,
+                                          iv?[iv bytes]:NULL,
+                                          [self bytes],
+                                          dataLength,
+                                          buffer,
+                                          bufferSize,
+                                          &numBytesEncrypted
+                                          );
+    if (cryptStatus == kCCSuccess) {
+        return [NSData dataWithBytesNoCopy:buffer length:numBytesEncrypted];
     }
-    
+    free(buffer);
     return nil;
+    
 }
 
 
@@ -71,30 +77,7 @@
  */
 - (NSData*)encryptedWithAESUsingKey:(NSString*)key andIV:(NSData*)iv {
     
-    NSData *keyData = [key dataUsingEncoding:NSUTF8StringEncoding];
-    
-    size_t dataMoved;
-    NSMutableData *encryptedData = [NSMutableData dataWithLength:self.length + kCCBlockSizeAES128];
-    
-    CCCryptorStatus status = CCCrypt(kCCEncrypt,                    // kCCEncrypt or kCCDecrypt
-                                     kCCAlgorithmAES128,
-                                     kCCOptionPKCS7Padding,         // Padding option for CBC Mode
-                                     keyData.bytes,
-                                     keyData.length,
-                                     iv.bytes,
-                                     self.bytes,
-                                     self.length,
-                                     encryptedData.mutableBytes,    // encrypted data out
-                                     encryptedData.length,
-                                     &dataMoved);                   // total data moved
-    
-    if (status == kCCSuccess) {
-        encryptedData.length = dataMoved;
-        return encryptedData;
-    }
-    
-    return nil;
-    
+    return [self encryptedWithAESCBCUsingKey:key andIV:iv];
 }
 /**
  *  @brief  利用AES解密据
@@ -106,30 +89,8 @@
  */
 - (NSData*)decryptedWithAESUsingKey:(NSString*)key andIV:(NSData*)iv {
     
-    NSData *keyData = [key dataUsingEncoding:NSUTF8StringEncoding];
-    
-    size_t dataMoved;
-    NSMutableData *decryptedData = [NSMutableData dataWithLength:self.length + kCCBlockSizeAES128];
-    
-    CCCryptorStatus result = CCCrypt(kCCDecrypt,                    // kCCEncrypt or kCCDecrypt
-                                     kCCAlgorithmAES128,
-                                     kCCOptionPKCS7Padding,         // Padding option for CBC Mode
-                                     keyData.bytes,
-                                     keyData.length,
-                                     iv.bytes,
-                                     self.bytes,
-                                     self.length,
-                                     decryptedData.mutableBytes,    // encrypted data out
-                                     decryptedData.length,
-                                     &dataMoved);                   // total data moved
-    
-    if (result == kCCSuccess) {
-        decryptedData.length = dataMoved;
-        return decryptedData;
-    }
-    
-    return nil;
-    
+    return [self decryptedWithAESCBCUsingKey:key andIV:iv];
+
 }
 /**
  *  利用3DES加密数据
@@ -141,28 +102,32 @@
  */
 - (NSData*)encryptedWith3DESUsingKey:(NSString*)key andIV:(NSData*)iv {
     
-    NSData *keyData = [key dataUsingEncoding:NSUTF8StringEncoding];
+    char keyPtr[kCCKeySize3DES+1];
+    bzero(keyPtr, sizeof(keyPtr));
+    [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
     
-    size_t dataMoved;
-    NSMutableData *encryptedData = [NSMutableData dataWithLength:self.length + kCCBlockSize3DES];
+    NSUInteger dataLength = [self length];
+    size_t bufferSize = dataLength + kCCBlockSize3DES;
+    void *buffer = malloc(bufferSize);
     
-    CCCryptorStatus result = CCCrypt(kCCEncrypt,                    // kCCEncrypt or kCCDecrypt
-                                     kCCAlgorithm3DES,
-                                     kCCOptionPKCS7Padding,         // Padding option for CBC Mode
-                                     keyData.bytes,
-                                     keyData.length,
-                                     iv.bytes,
-                                     self.bytes,
-                                     self.length,
-                                     encryptedData.mutableBytes,    // encrypted data out
-                                     encryptedData.length,
-                                     &dataMoved);                   // total data moved
+    size_t numBytesEncrypted = 0;
     
-    if (result == kCCSuccess) {
-        encryptedData.length = dataMoved;
-        return encryptedData;
+    CCCryptorStatus cryptStatus = CCCrypt(kCCEncrypt,
+                                          kCCAlgorithm3DES,
+                                          kCCOptionPKCS7Padding,
+                                          keyPtr,
+                                          kCCKeySize3DES,
+                                          iv?[iv bytes]:NULL,
+                                          [self bytes],
+                                          dataLength,
+                                          buffer,
+                                          bufferSize,
+                                          &numBytesEncrypted
+                                          );
+    if (cryptStatus == kCCSuccess) {
+        return [NSData dataWithBytesNoCopy:buffer length:numBytesEncrypted];
     }
-    
+    free(buffer);
     return nil;
     
 }
@@ -176,28 +141,32 @@
  */
 - (NSData*)decryptedWith3DESUsingKey:(NSString*)key andIV:(NSData*)iv {
     
-    NSData *keyData = [key dataUsingEncoding:NSUTF8StringEncoding];
+    char keyPtr[kCCKeySize3DES+1];
+    bzero(keyPtr, sizeof(keyPtr));
+    [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
     
-    size_t dataMoved;
-    NSMutableData *decryptedData = [NSMutableData dataWithLength:self.length + kCCBlockSize3DES];
+    NSUInteger dataLength = [self length];
+    size_t bufferSize = dataLength + kCCBlockSize3DES;
+    void *buffer = malloc(bufferSize);
     
-    CCCryptorStatus result = CCCrypt(kCCDecrypt,                    // kCCEncrypt or kCCDecrypt
-                                     kCCAlgorithm3DES,
-                                     kCCOptionPKCS7Padding,         // Padding option for CBC Mode
-                                     keyData.bytes,
-                                     keyData.length,
-                                     iv.bytes,
-                                     self.bytes,
-                                     self.length,
-                                     decryptedData.mutableBytes,    // encrypted data out
-                                     decryptedData.length,
-                                     &dataMoved);                   // total data moved
+    size_t numBytesEncrypted = 0;
     
-    if (result == kCCSuccess) {
-        decryptedData.length = dataMoved;
-        return decryptedData;
+    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt,
+                                          kCCAlgorithm3DES,
+                                          kCCOptionPKCS7Padding,
+                                          keyPtr,
+                                          kCCKeySize3DES,
+                                          iv?[iv bytes]:NULL,
+                                          [self bytes],
+                                          dataLength,
+                                          buffer,
+                                          bufferSize,
+                                          &numBytesEncrypted
+                                          );
+    if (cryptStatus == kCCSuccess) {
+        return [NSData dataWithBytesNoCopy:buffer length:numBytesEncrypted];
     }
-    
+    free(buffer);
     return nil;
     
 }
