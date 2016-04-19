@@ -52,4 +52,7 @@ extern NSString * const CSToastPositionBottom;
 - (void)showToast:(UIView *)toast duration:(NSTimeInterval)interval position:(id)point
       tapCallback:(void(^)(void))tapCallback;
 
+//--slide under navigation bar
+- (void)makeTopToast:(NSString *)message;
+
 @end

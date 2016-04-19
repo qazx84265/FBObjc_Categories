@@ -379,4 +379,65 @@ NSString * const CSToastPositionBottom          = @"bottom";
     return wrapperView;
 }
 
+
+
+#pragma mark --- top toast
+//-----------top toast
+- (void)makeTopToast:(NSString *)message {
+    UILabel *topTipView = [[UILabel alloc]initWithFrame:CGRectMake(0,-30,CGRectGetWidth([UIScreen mainScreen].bounds),25)];
+    [topTipView setText:message];
+    [topTipView setTextColor:[UIColor  whiteColor]];
+    [topTipView setFont:[UIFont systemFontOfSize:12.0]];
+    [topTipView setBackgroundColor:[UIColor colorWithRed:103/255.0 green:197/255.0 blue:222/255.0 alpha:1.0]];
+    [topTipView setTextAlignment:NSTextAlignmentCenter];
+    //    [topTipView setHidden:YES];
+    [self.layer addSublayer:topTipView.layer];
+    //    [self insertSubview:topTipView atIndex:0];
+    [self showTopToast:topTipView];
+}
+
+
+- (void)showTopToast:(UIView *)toast {
+    
+    id target = self;
+    while (target) {
+        target = ((UIResponder *)target).nextResponder;
+        if ([target isKindOfClass:[UIViewController class]]) {
+            break;
+        }
+    }
+    
+    BOOL isExtend = NO;
+    if ([target isKindOfClass:[UIViewController class]]) {
+        UIViewController *vc = target;
+        UIRectEdge rectEdge = [vc edgesForExtendedLayout];
+        if (rectEdge == UIRectEdgeAll || rectEdge == UIRectEdgeTop) {
+            isExtend = YES;
+        }
+    }
+    
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        toast.transform = CGAffineTransformMakeTranslation(0, isExtend ? 30+64 : 30);
+    } completion:^(BOOL finished) {
+        [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(hideTopToast:) userInfo:toast repeats:NO];
+    }];
+}
+
+- (void)hideTopToast:(NSTimer *)timer {
+    [UIView animateWithDuration:0.5 animations:^{
+        ((UIView *)timer.userInfo).transform = CGAffineTransformIdentity;
+    }];
+    
+    [NSTimer scheduledTimerWithTimeInterval:.5 target:self selector:@selector(hide:) userInfo:((UIView *)timer.userInfo) repeats:NO];
+}
+//--------- top toast
+
+- (void)hide:(NSTimer *)timer {
+    //    [((UIView *)timer.userInfo) setHidden:YES];
+    [((UIView *)timer.userInfo) removeFromSuperview];
+}
+//----------------
+
+
 @end
