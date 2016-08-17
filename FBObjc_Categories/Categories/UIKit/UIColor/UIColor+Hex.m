@@ -60,7 +60,7 @@ CGFloat colorComponentFrom(NSString *string, NSUInteger start, NSUInteger length
             if ([scanner scanHexLongLong:&hexValue]) {
                 _red = ((hexValue & 0xFF0000) >> 16)/255.0;
                 _green = ((hexValue & 0x00FF00) >> 8)/255.0;
-                _red = (hexValue & 0x0000FF)/255.0;
+                _blue = (hexValue & 0x0000FF)/255.0;
             }
         } else {
 #ifdef DEBUG
