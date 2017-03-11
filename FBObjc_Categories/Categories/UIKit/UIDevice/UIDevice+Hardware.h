@@ -18,56 +18,59 @@
 
 #define IS_IPHONE_5 [[UIScreen mainScreen] applicationFrame].size.height == 568
 
-typedef enum
-{
-    NOT_AVAILABLE,
+typedef NS_ENUM(NSUInteger,  kDeviceType){
+    //Apple UnknownDevices
+    kDeviceType_Unknown = 0,
     
-    IPHONE_2G,
-    IPHONE_3G,
-    IPHONE_3GS,
-    IPHONE_4,
-    IPHONE_4_CDMA,
-    IPHONE_4S,
-    IPHONE_5,
-    IPHONE_5_CDMA_GSM,
-    IPHONE_5C,
-    IPHONE_5C_CDMA_GSM,
-    IPHONE_5S,
-    IPHONE_5S_CDMA_GSM,
-    IPHONE_6,
-    IPHONE_6_PLUS,
-
+    //Simulator
+    kDeviceType_Simulator,
     
-    IPOD_TOUCH_1G,
-    IPOD_TOUCH_2G,
-    IPOD_TOUCH_3G,
-    IPOD_TOUCH_4G,
-    IPOD_TOUCH_5G,
+    //Apple TV
+    kDeviceType_TV2G,
+    kDeviceType_TV3G,
+    kDeviceType_TV4G,
     
-    IPAD,
-    IPAD_2,
-    IPAD_2_WIFI,
-    IPAD_2_CDMA,
-    IPAD_3,
-    IPAD_3G,
-    IPAD_3_WIFI,
-    IPAD_3_WIFI_CDMA,
-    IPAD_4,
-    IPAD_4_WIFI,
-    IPAD_4_GSM_CDMA,
+    //Apple Watch
+    kDeviceType_Watch,
     
-    IPAD_MINI,
-    IPAD_MINI_WIFI,
-    IPAD_MINI_WIFI_CDMA,
-    IPAD_MINI_RETINA_WIFI,
-    IPAD_MINI_RETINA_WIFI_CDMA,
+    //Apple iPad
+    kDeviceType_Ipad,
+    kDeviceType_Ipad2,
+    kDeviceType_Ipad3,
+    kDeviceType_Ipad4,
+    kDeviceType_IpadAir,
+    kDeviceType_IpadAir2,
+    kDeviceType_IpadPro,
+    kDeviceType_IpadMini,
+    kDeviceType_IpadMini2,
+    kDeviceType_IpadMini3,
+    kDeviceType_IpadMini4,
     
-    IPAD_AIR_WIFI,
-    IPAD_AIR_WIFI_GSM,
-    IPAD_AIR_WIFI_CDMA,
+    //Apple iPhone
+    kDeviceType_Iphone2G,
+    kDeviceType_Iphone3G,
+    kDeviceType_Iphone3GS,
+    kDeviceType_Iphone4,
+    kDeviceType_Iphone4S,
+    kDeviceType_Iphone5,
+    kDeviceType_Iphone5C,
+    kDeviceType_Iphone5S,
+    kDeviceType_Iphone6,
+    kDeviceType_Iphone6P,
+    kDeviceType_Iphone6S,
+    kDeviceType_Iphone6SP,
+    kDeviceType_IphoneSE,
+    kDeviceType_Iphone7,
+    kDeviceType_Iphone7P,
     
-    SIMULATOR
-} Hardware;
+    //Apple iPod touch
+    kDeviceType_IpodTouch,
+    kDeviceType_IpodTouch2G,
+    kDeviceType_IpodTouch3G,
+    kDeviceType_IpodTouch4G,
+    kDeviceType_IpodTouch5G,
+    kDeviceType_IpodTouch6G
+};
 
 
 @interface UIDevice (Hardware)
@@ -76,7 +79,7 @@ typedef enum
 - (NSString*)hardwareString;
 
 /** This method returns the Hardware enum depending upon harware string */
-- (Hardware)hardware;
+- (kDeviceType)getDeviceType;
 
 /** This method returns the readable description of hardware string */
 - (NSString*)hardwareDescription;
@@ -85,7 +88,7 @@ typedef enum
 - (NSString *)hardwareSimpleDescription;
 
 /** This method returns YES if the current device is better than the hardware passed */
-- (BOOL)isCurrentDeviceHardwareBetterThan:(Hardware)hardware;
+//- (BOOL)isCurrentDeviceHardwareBetterThan:(kDeviceType)deviceType;
 
 /** This method returns the resolution for still image that can be received 
  from back camera of the current device. Resolution returned for image oriented landscape right. **/
