@@ -77,6 +77,8 @@ typedef NS_ENUM(NSUInteger,  kDeviceType){
 /** This method retruns the hardware type */
 - (NSString*)hardwareString;
 
+- (BOOL)isSimulator;
+
 /** Whether the device is jailbroken */
 - (BOOL)isJailbroken;
 
