@@ -1,2 +1,2 @@
 # FBObjc_Extends
-extends of objective-c &amp;&amp; cocoa
+Categories of objective-c &amp;&amp; cocoa
