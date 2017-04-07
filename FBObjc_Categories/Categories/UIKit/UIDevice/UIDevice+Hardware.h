@@ -75,8 +75,10 @@ typedef NS_ENUM(NSUInteger,  kDeviceType){
 
 @interface UIDevice (Hardware)
 /** This method retruns the hardware type */
-
 - (NSString*)hardwareString;
+
+/** Whether the device is jailbroken */
+- (BOOL)isJailbroken;
 
 /** This method returns the Hardware enum depending upon harware string */
 - (kDeviceType)getDeviceType;
