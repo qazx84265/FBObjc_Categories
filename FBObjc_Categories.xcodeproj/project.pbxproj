@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		2542F2901F6D5E84000648FB /* NSObject+codec.m in Sources */ = {isa = PBXBuildFile; fileRef = 2542F28F1F6D5E84000648FB /* NSObject+codec.m */; };
+		2542F2931F6D6600000648FB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8B9BFF1CC4863A00F6EC6F /* libz.tbd */; };
 		EC4F5FEF1CB49F2A00E3DB4E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4F5FEE1CB49F2A00E3DB4E /* main.m */; };
 		EC4F5FF21CB49F2A00E3DB4E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4F5FF11CB49F2A00E3DB4E /* AppDelegate.m */; };
 		EC4F5FF51CB49F2A00E3DB4E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4F5FF41CB49F2A00E3DB4E /* ViewController.m */; };
 		EC4F5FF81CB49F2A00E3DB4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC4F5FF61CB49F2A00E3DB4E /* Main.storyboard */; };
 		EC4F5FFA1CB49F2A00E3DB4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC4F5FF91CB49F2A00E3DB4E /* Assets.xcassets */; };
 		EC4F5FFD1CB49F2A00E3DB4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC4F5FFB1CB49F2A00E3DB4E /* LaunchScreen.storyboard */; };
-		EC8B9C001CC4863A00F6EC6F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8B9BFF1CC4863A00F6EC6F /* libz.tbd */; };
 		ECD100001CC0F6B100AF9D94 /* UIImage+Merge.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FEB91CC0F6B000AF9D94 /* UIImage+Merge.m */; };
 		ECD100011CC0F6B100AF9D94 /* UIImage+Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FEBB1CC0F6B000AF9D94 /* UIImage+Orientation.m */; };
 		ECD100021CC0F6B100AF9D94 /* UIImage+PDF.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FEBD1CC0F6B000AF9D94 /* UIImage+PDF.m */; };
@@ -679,7 +679,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC8B9C001CC4863A00F6EC6F /* libz.tbd in Frameworks */,
+				2542F2931F6D6600000648FB /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1655,6 +1655,7 @@
 					EC4F5FE91CB49F2A00E3DB4E = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = CR386L3EVP;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -2028,8 +2029,10 @@
 				INFOPLIST_FILE = FBObjc_Categories/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pureLake.FBObjc-Categories";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fbapp.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8f1a1231-1adf-4504-a763-f27ef55ddb76";
+				PROVISIONING_PROFILE_SPECIFIER = demo_dev;
 			};
 			name = Debug;
 		};
@@ -2037,12 +2040,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = CR386L3EVP;
 				INFOPLIST_FILE = FBObjc_Categories/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pureLake.FBObjc-Categories";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fbapp.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1bb0e2fd-577b-437a-869f-200d07e3cf68";
+				PROVISIONING_PROFILE_SPECIFIER = demo_adhoc;
 			};
 			name = Release;
 		};
