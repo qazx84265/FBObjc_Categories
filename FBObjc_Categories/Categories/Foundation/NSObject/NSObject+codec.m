@@ -51,4 +51,8 @@
         c = [c superclass];
     }
 }
+
+- (NSArray*)ignoredNames {
+    return @[];
+}
 @end

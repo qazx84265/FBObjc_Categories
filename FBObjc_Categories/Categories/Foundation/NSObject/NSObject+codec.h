@@ -2,7 +2,7 @@
 
 @interface NSObject (codec)
 
-//- (NSArray *)ignoredNames;
+- (NSArray *)ignoredNames;
 - (void)encode:(NSCoder *)aCoder;
 - (void)decode:(NSCoder *)aDecoder;
 

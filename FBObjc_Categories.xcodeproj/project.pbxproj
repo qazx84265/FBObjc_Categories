@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2542F2901F6D5E84000648FB /* NSObject+codec.m in Sources */ = {isa = PBXBuildFile; fileRef = 2542F28F1F6D5E84000648FB /* NSObject+codec.m */; };
 		EC4F5FEF1CB49F2A00E3DB4E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4F5FEE1CB49F2A00E3DB4E /* main.m */; };
 		EC4F5FF21CB49F2A00E3DB4E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4F5FF11CB49F2A00E3DB4E /* AppDelegate.m */; };
 		EC4F5FF51CB49F2A00E3DB4E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4F5FF41CB49F2A00E3DB4E /* ViewController.m */; };
@@ -63,7 +64,6 @@
 		ECD1002E1CC0F6B100AF9D94 /* UITextField+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FF241CC0F6B000AF9D94 /* UITextField+Blocks.m */; };
 		ECD1002F1CC0F6B100AF9D94 /* UITextField+History.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FF261CC0F6B000AF9D94 /* UITextField+History.m */; };
 		ECD100301CC0F6B100AF9D94 /* UITextField+Select.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FF281CC0F6B000AF9D94 /* UITextField+Select.m */; };
-		ECD100311CC0F6B100AF9D94 /* UITextField+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FF2A1CC0F6B000AF9D94 /* UITextField+Shake.m */; };
 		ECD100321CC0F6B100AF9D94 /* UITextView+PinchZoom.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FF2D1CC0F6B000AF9D94 /* UITextView+PinchZoom.m */; };
 		ECD100331CC0F6B100AF9D94 /* UITextView+PlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FF2F1CC0F6B000AF9D94 /* UITextView+PlaceHolder.m */; };
 		ECD100341CC0F6B100AF9D94 /* UITextView+Select.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1FF311CC0F6B000AF9D94 /* UITextView+Select.m */; };
@@ -231,6 +231,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2542F28E1F6D5E84000648FB /* NSObject+codec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+codec.h"; sourceTree = "<group>"; };
+		2542F28F1F6D5E84000648FB /* NSObject+codec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+codec.m"; sourceTree = "<group>"; };
+		2542F2911F6D6001000648FB /* UKCommonTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UKCommonTypes.h; sourceTree = "<group>"; };
 		EC4F5FEA1CB49F2A00E3DB4E /* FBObjc_Categories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBObjc_Categories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4F5FEE1CB49F2A00E3DB4E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EC4F5FF01CB49F2A00E3DB4E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -581,8 +584,6 @@
 		ECD1FF261CC0F6B000AF9D94 /* UITextField+History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+History.m"; sourceTree = "<group>"; };
 		ECD1FF271CC0F6B000AF9D94 /* UITextField+Select.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Select.h"; sourceTree = "<group>"; };
 		ECD1FF281CC0F6B000AF9D94 /* UITextField+Select.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Select.m"; sourceTree = "<group>"; };
-		ECD1FF291CC0F6B000AF9D94 /* UITextField+Shake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Shake.h"; sourceTree = "<group>"; };
-		ECD1FF2A1CC0F6B000AF9D94 /* UITextField+Shake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Shake.m"; sourceTree = "<group>"; };
 		ECD1FF2C1CC0F6B000AF9D94 /* UITextView+PinchZoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+PinchZoom.h"; sourceTree = "<group>"; };
 		ECD1FF2D1CC0F6B000AF9D94 /* UITextView+PinchZoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+PinchZoom.m"; sourceTree = "<group>"; };
 		ECD1FF2E1CC0F6B000AF9D94 /* UITextView+PlaceHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+PlaceHolder.h"; sourceTree = "<group>"; };
@@ -952,6 +953,8 @@
 		ECD1FDFF1CC0F6B000AF9D94 /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
+				2542F28E1F6D5E84000648FB /* NSObject+codec.h */,
+				2542F28F1F6D5E84000648FB /* NSObject+codec.m */,
 				ECD1FE001CC0F6B000AF9D94 /* NSObject+AddProperty.h */,
 				ECD1FE011CC0F6B000AF9D94 /* NSObject+AddProperty.m */,
 				ECD1FE021CC0F6B000AF9D94 /* NSObject+AppInfo.h */,
@@ -1127,6 +1130,7 @@
 				ECD1FF591CC0F6B000AF9D94 /* UIViewController */,
 				ECD1FF701CC0F6B000AF9D94 /* UIWebView */,
 				ECD1FF851CC0F6B100AF9D94 /* UIWindow */,
+				2542F2911F6D6001000648FB /* UKCommonTypes.h */,
 			);
 			name = UIKit;
 			path = Categories/UIKit;
@@ -1492,8 +1496,6 @@
 				ECD1FF261CC0F6B000AF9D94 /* UITextField+History.m */,
 				ECD1FF271CC0F6B000AF9D94 /* UITextField+Select.h */,
 				ECD1FF281CC0F6B000AF9D94 /* UITextField+Select.m */,
-				ECD1FF291CC0F6B000AF9D94 /* UITextField+Shake.h */,
-				ECD1FF2A1CC0F6B000AF9D94 /* UITextField+Shake.m */,
 			);
 			path = UITextField;
 			sourceTree = "<group>";
@@ -1708,7 +1710,6 @@
 				ECD1001C1CC0F6B100AF9D94 /* UIPopoverController+iPhone.m in Sources */,
 				ECD1FFB41CC0F6B100AF9D94 /* NSObject+GCD.m in Sources */,
 				ECD1FF891CC0F6B100AF9D94 /* NSArray+SafeAccess.m in Sources */,
-				ECD100311CC0F6B100AF9D94 /* UITextField+Shake.m in Sources */,
 				ECD1FF9E1CC0F6B100AF9D94 /* NSDictionary+SafeAccess.m in Sources */,
 				ECD1FFA11CC0F6B100AF9D94 /* NSException+Trace.m in Sources */,
 				ECD1FFBA1CC0F6B100AF9D94 /* NSSet+Block.m in Sources */,
@@ -1848,6 +1849,7 @@
 				ECD100501CC0F6B100AF9D94 /* UIViewController+StoreKit.m in Sources */,
 				ECD1FFBC1CC0F6B100AF9D94 /* NSString+Base64.m in Sources */,
 				ECD1FFD71CC0F6B100AF9D94 /* UIAlertView+Block.m in Sources */,
+				2542F2901F6D5E84000648FB /* NSObject+codec.m in Sources */,
 				ECD1000D1CC0F6B100AF9D94 /* UIImageView+Reflect.m in Sources */,
 				ECD1FFF21CC0F6B100AF9D94 /* UIDevice+Hardware.m in Sources */,
 				ECD1FFFD1CC0F6B100AF9D94 /* UIImage+FileName.m in Sources */,
