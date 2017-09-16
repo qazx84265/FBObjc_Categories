@@ -14,6 +14,7 @@
 		2542F2CB1F6D77F8000648FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2542F2CA1F6D77F8000648FB /* Assets.xcassets */; };
 		2542F2CE1F6D77F8000648FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2542F2CC1F6D77F8000648FB /* LaunchScreen.storyboard */; };
 		2542F2D81F6D7842000648FB /* FBObjcCategories in Resources */ = {isa = PBXBuildFile; fileRef = 2542F2D71F6D7842000648FB /* FBObjcCategories */; };
+		2542F2DB1F6D8194000648FB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2542F2DA1F6D8194000648FB /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		2542F2CD1F6D77F8000648FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2542F2CF1F6D77F8000648FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2542F2D71F6D7842000648FB /* FBObjcCategories */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FBObjcCategories; path = ../FBObjcCategories; sourceTree = "<group>"; };
+		2542F2DA1F6D8194000648FB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2542F2DB1F6D8194000648FB /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +50,7 @@
 				2542F2D71F6D7842000648FB /* FBObjcCategories */,
 				2542F2BD1F6D77F8000648FB /* FBObjcCategoriesDemo */,
 				2542F2BC1F6D77F8000648FB /* Products */,
+				2542F2D91F6D8194000648FB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +84,14 @@
 				2542F2BF1F6D77F8000648FB /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2542F2D91F6D8194000648FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2542F2DA1F6D8194000648FB /* libz.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

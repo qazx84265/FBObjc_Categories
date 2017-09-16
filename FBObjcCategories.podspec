@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "FBObjcCategories"
-  s.version      = "0.5.4"
+  s.version      = "0.5.5"
   s.summary      = "Categories of objective-c && cocoa"
 
   # This description is used to generate tags and improve search results.
@@ -94,7 +94,7 @@ Pod::Spec.new do |s|
 s.source_files  = "FBObjcCategories/Categories/**/*.{h,m}"
   # s.exclude_files = "Classes/Exclude"
 
-   s.public_header_files = "FBObjc_Categories/Categories/**/*.h"
+   s.public_header_files = "FBObjcCategories/Categories/**/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -120,7 +120,7 @@ s.source_files  = "FBObjcCategories/Categories/**/*.{h,m}"
   # s.framework  = "SomeFramework"
   s.frameworks = "Foundation", "UIKit"
 
-  # s.library   = "iconv"
+   s.library   = "z"
   # s.libraries = "iconv", "xml2"
 
 
