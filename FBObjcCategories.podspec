@@ -132,7 +132,7 @@ s.source_files  = "FBObjcCategories/Categories/**/*.{h,m}"
 
   # s.requires_arc = true
 
-# s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include" }
+  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include" }
   # s.dependency "JSONKit", "~> 1.4"
 
 end
