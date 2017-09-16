@@ -35,7 +35,7 @@ static NSMutableDictionary *appRegisteredCustomFonts = nil;
  */
 + (BOOL) deviceHasFullSupportForFontCollections {
     
-    return (CTFontManagerCreateFontDescriptorsFromURL != NULL); // 10.6 or 7.0
+    return (&CTFontManagerCreateFontDescriptorsFromURL != NULL); // 10.6 or 7.0
     
 }
 

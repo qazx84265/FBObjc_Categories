@@ -156,7 +156,8 @@ static char kTextFieldHistoryviewIdentifyKey;
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView; {
     return 1;
 }
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section; {
     return [self loadHistroy].count;
 }
@@ -172,6 +173,7 @@ static char kTextFieldHistoryviewIdentifyKey;
     
     return cell;
 }
+#pragma clang diagnostic pop
 
 #pragma mark tableview delegate
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section; {

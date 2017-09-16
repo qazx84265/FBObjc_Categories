@@ -94,7 +94,8 @@ static char PermissionsLocationBlockFailurePropertyKey;
 
 -(kPermissionAccess)hasAccessToLocation {
     switch ([CLLocationManager authorizationStatus]) {
-        case kCLAuthorizationStatusAuthorized:
+        case kCLAuthorizationStatusAuthorizedAlways:
+        case kCLAuthorizationStatusAuthorizedWhenInUse:
             return kPermissionAccessGranted;
             break;
             
@@ -274,7 +275,8 @@ static char PermissionsLocationBlockFailurePropertyKey;
 
 #pragma mark - Location manager delegate
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-    if (status == kCLAuthorizationStatusAuthorized) {
+    if (status == kCLAuthorizationStatusAuthorizedAlways ||
+        status == kCLAuthorizationStatusAuthorizedWhenInUse) {
         self.locationSuccessCallbackProperty();
     } else if (status != kCLAuthorizationStatusNotDetermined) {
         self.locationFailureCallbackProperty();

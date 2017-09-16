@@ -21,7 +21,10 @@ NSString * const UIDevicePasscodeKeychainAccount = @"UIDevice-PasscodeStatus_Key
 #endif
     
 #ifdef __IPHONE_8_0
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wtautological-pointer-compare"
     return (&kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly != NULL);
+    #pragma clang diagnostic push
 #else
     return NO;
 #endif
