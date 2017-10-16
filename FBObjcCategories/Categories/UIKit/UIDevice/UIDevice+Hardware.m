@@ -102,9 +102,9 @@
     
     //Apple Watch
     if ([identifier isEqualToString:@"Watch1,1"] || [identifier isEqualToString:@"Watch1,2"])      return kDeviceType_Watch;
-    if ([identifier isEqualToString:@"Watch2,6"] || [identifier isEqualToString:@"Watch2,7"])      return kDeviceType_S1;
-    if ([identifier isEqualToString:@"Watch2,3"] || [identifier isEqualToString:@"Watch2,4"])      return kDeviceType_S2;
-    if ([identifier isEqualToString:@"Watch3,1"] || [identifier isEqualToString:@"Watch3,2"] || [identifier isEqualToString:@"Watch3,3"] || [identifier isEqualToString:@"Watch3,4"])      return kDeviceType_S3;
+    if ([identifier isEqualToString:@"Watch2,6"] || [identifier isEqualToString:@"Watch2,7"])      return kDeviceType_WatchS1;
+    if ([identifier isEqualToString:@"Watch2,3"] || [identifier isEqualToString:@"Watch2,4"])      return kDeviceType_WatchS2;
+    if ([identifier isEqualToString:@"Watch3,1"] || [identifier isEqualToString:@"Watch3,2"] || [identifier isEqualToString:@"Watch3,3"] || [identifier isEqualToString:@"Watch3,4"])      return kDeviceType_WatchS3;
     
     //Apple iPad
     if ([identifier isEqualToString:@"iPad1,1"])      return kDeviceType_Ipad;

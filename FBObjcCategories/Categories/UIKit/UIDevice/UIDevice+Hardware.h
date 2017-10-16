@@ -38,10 +38,10 @@ typedef NS_ENUM(NSUInteger,  kDeviceType){
     kDeviceType_4K, //Aplle TV 4K
     
     //Apple Watch
-    kDeviceType_1G, //1st generation
-    kDeviceType_S1, //series 1
-    kDeviceType_S2,
-    kDeviceType_S3,
+    kDeviceType_Watch, //1st generation
+    kDeviceType_WatchS1, //series 1
+    kDeviceType_WatchS2,
+    kDeviceType_WatchS3,
     
     //Apple iPad
     kDeviceType_Ipad,

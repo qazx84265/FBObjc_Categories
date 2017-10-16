@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "FBObjcCategories"
-  s.version      = "0.5.5"
+  s.version      = "0.6.1"
   s.summary      = "Categories of objective-c && cocoa"
 
   # This description is used to generate tags and improve search results.
