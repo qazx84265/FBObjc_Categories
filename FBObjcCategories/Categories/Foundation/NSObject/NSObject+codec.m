@@ -6,7 +6,7 @@
 - (void)decode:(NSCoder *)aDecoder {
     // 一层层父类往上查找，对父类的属性执行归解档方法
     Class c = self.class;
-    while (c &&c != [NSObject class]) {
+    while (c && c != [NSObject class]) {
 
         unsigned int outCount = 0;
         Ivar *ivars = class_copyIvarList(c, &outCount);
@@ -31,7 +31,7 @@
 - (void)encode:(NSCoder *)aCoder {
     // 一层层父类往上查找，对父类的属性执行归解档方法
     Class c = self.class;
-    while (c &&c != [NSObject class]) {
+    while (c && c != [NSObject class]) {
 
         unsigned int outCount = 0;
         Ivar *ivars = class_copyIvarList([self class], &outCount);

@@ -89,53 +89,65 @@
     NSString *identifier = [self hardwareString];
 
     //Simulator
-    if ([identifier isEqual:@"i386"] || [identifier isEqualToString:@"x86_64"])      return kDeviceType_Simulator;
+    if ([identifier isEqualToString:@"i386"] || [identifier isEqualToString:@"x86_64"])      return kDeviceType_Simulator;
+    
+    //AirPod
+    if ([identifier isEqualToString:@"AirPods1,1"]) return kDeviceType_AirPod;
     
     //Apple TV
-    if ([identifier isEqual:@"AppleTV2,1"])      return kDeviceType_TV2G;
-    if ([identifier isEqual:@"AppleTV3,1"] || [identifier isEqualToString:@"AppleTV3,2"])      return kDeviceType_TV3G;
-    if ([identifier isEqual:@"AppleTV5,3"])      return kDeviceType_TV4G;
+    if ([identifier isEqualToString:@"AppleTV2,1"])      return kDeviceType_TV2G;
+    if ([identifier isEqualToString:@"AppleTV3,1"] || [identifier isEqualToString:@"AppleTV3,2"])      return kDeviceType_TV3G;
+    if ([identifier isEqualToString:@"AppleTV5,3"])      return kDeviceType_TV4G;
+    if ([identifier isEqualToString:@"AppleTV6,2"])      return kDeviceType_4K;
     
     //Apple Watch
-    if ([identifier isEqual:@"Watch1,1"] || [identifier isEqualToString:@"Watch1,2"])      return kDeviceType_Watch;
+    if ([identifier isEqualToString:@"Watch1,1"] || [identifier isEqualToString:@"Watch1,2"])      return kDeviceType_Watch;
+    if ([identifier isEqualToString:@"Watch2,6"] || [identifier isEqualToString:@"Watch2,7"])      return kDeviceType_S1;
+    if ([identifier isEqualToString:@"Watch2,3"] || [identifier isEqualToString:@"Watch2,4"])      return kDeviceType_S2;
+    if ([identifier isEqualToString:@"Watch3,1"] || [identifier isEqualToString:@"Watch3,2"] || [identifier isEqualToString:@"Watch3,3"] || [identifier isEqualToString:@"Watch3,4"])      return kDeviceType_S3;
     
     //Apple iPad
-    if ([identifier isEqual:@"iPad1,1"])      return kDeviceType_Ipad;
-    if ([identifier isEqual:@"iPad2,1"] || [identifier isEqualToString:@"iPad2,2"] || [identifier isEqualToString:@"iPad2,3"] || [identifier isEqualToString:@"iPad2,4"])      return kDeviceType_Ipad2;
-    if ([identifier isEqual:@"iPad3,1"] || [identifier isEqualToString:@"iPad3,2"] || [identifier isEqualToString:@"iPad3,3"])      return kDeviceType_Ipad3;
-    if ([identifier isEqual:@"iPad3,4"] || [identifier isEqualToString:@"iPad3,5"] || [identifier isEqualToString:@"iPad3,6"])      return kDeviceType_Ipad4;
-    if ([identifier isEqual:@"iPad4,1"] || [identifier isEqualToString:@"iPad4,2"] || [identifier isEqualToString:@"iPad4,3"])      return kDeviceType_IpadAir;
-    if ([identifier isEqual:@"iPad5,3"] || [identifier isEqualToString:@"iPad5,4"])      return kDeviceType_IpadAir2;
-    if ([identifier isEqual:@"iPad6,7"] || [identifier isEqualToString:@"iPad6,7"])      return kDeviceType_IpadPro;
-    if ([identifier isEqual:@"iPad2,5"] || [identifier isEqualToString:@"iPad2,6"] || [identifier isEqualToString:@"iPad2,7"])      return kDeviceType_IpadMini;
-    if ([identifier isEqual:@"iPad4,4"] || [identifier isEqualToString:@"iPad4,5"] || [identifier isEqualToString:@"iPad4,6"])      return kDeviceType_IpadMini2;
-    if ([identifier isEqual:@"iPad4,7"] || [identifier isEqualToString:@"iPad4,8"] || [identifier isEqualToString:@"iPad4,9"])      return kDeviceType_IpadMini3;
-    if ([identifier isEqual:@"iPad5,1"] || [identifier isEqualToString:@"iPad5,2"])      return kDeviceType_IpadMini4;
+    if ([identifier isEqualToString:@"iPad1,1"])      return kDeviceType_Ipad;
+    if ([identifier isEqualToString:@"iPad2,1"] || [identifier isEqualToString:@"iPad2,2"] || [identifier isEqualToString:@"iPad2,3"] || [identifier isEqualToString:@"iPad2,4"])      return kDeviceType_Ipad2;
+    if ([identifier isEqualToString:@"iPad3,1"] || [identifier isEqualToString:@"iPad3,2"] || [identifier isEqualToString:@"iPad3,3"])      return kDeviceType_Ipad3;
+    if ([identifier isEqualToString:@"iPad3,4"] || [identifier isEqualToString:@"iPad3,5"] || [identifier isEqualToString:@"iPad3,6"])      return kDeviceType_Ipad4;
+    if ([identifier isEqualToString:@"iPad6,11"] || [identifier isEqualToString:@"iPad6,12"])      return kDeviceType_Ipad5;
+    if ([identifier isEqualToString:@"iPad4,1"] || [identifier isEqualToString:@"iPad4,2"] || [identifier isEqualToString:@"iPad4,3"])      return kDeviceType_IpadAir;
+    if ([identifier isEqualToString:@"iPad5,3"] || [identifier isEqualToString:@"iPad5,4"])      return kDeviceType_IpadAir2;
+    if ([identifier isEqualToString:@"iPad6,7"] || [identifier isEqualToString:@"iPad6,8"] || [identifier isEqual:@"iPad6,3"] || [identifier isEqualToString:@"iPad7,3"]|| [identifier isEqual:@"iPad6,3"] || [identifier isEqualToString:@"iPad7,4"])      return kDeviceType_IpadPro;
+    if ([identifier isEqualToString:@"iPad7,1"] || [identifier isEqualToString:@"iPad7,2"])      return kDeviceType_IpadPro2;
+    if ([identifier isEqualToString:@"iPad2,5"] || [identifier isEqualToString:@"iPad2,6"] || [identifier isEqualToString:@"iPad2,7"])      return kDeviceType_IpadMini;
+    if ([identifier isEqualToString:@"iPad4,4"] || [identifier isEqualToString:@"iPad4,5"] || [identifier isEqualToString:@"iPad4,6"])      return kDeviceType_IpadMini2;
+    if ([identifier isEqualToString:@"iPad4,7"] || [identifier isEqualToString:@"iPad4,8"] || [identifier isEqualToString:@"iPad4,9"])      return kDeviceType_IpadMini3;
+    if ([identifier isEqualToString:@"iPad5,1"] || [identifier isEqualToString:@"iPad5,2"])      return kDeviceType_IpadMini4;
     
     //Apple iPhone
-    if ([identifier isEqual:@"iPhone1,1"])      return kDeviceType_Iphone2G;
-    if ([identifier isEqual:@"iPhone1,2"])      return kDeviceType_Iphone3G;
-    if ([identifier isEqual:@"iPhone2,1"])      return kDeviceType_Iphone3GS;
-    if ([identifier isEqual:@"iPhone3,1"] || [identifier isEqualToString:@"iPhone3,2"] || [identifier isEqualToString:@"iPhone3,3"])      return kDeviceType_Iphone4;
-    if ([identifier isEqual:@"iPhone4,1"])      return kDeviceType_Iphone4S;
-    if ([identifier isEqual:@"iPhone5,1"] || [identifier isEqualToString:@"iPhone5,2"])      return kDeviceType_Iphone5;
-    if ([identifier isEqual:@"iPhone5,3"] || [identifier isEqualToString:@"iPhone5,4"])      return kDeviceType_Iphone5C;
-    if ([identifier isEqual:@"iPhone6,1"] || [identifier isEqualToString:@"iPhone6,2"])      return kDeviceType_Iphone5S;
-    if ([identifier isEqual:@"iPhone7,2"])      return kDeviceType_Iphone6;
-    if ([identifier isEqual:@"iPhone7,1"])      return kDeviceType_Iphone6P;
-    if ([identifier isEqual:@"iPhone8,1"])      return kDeviceType_Iphone6S;
-    if ([identifier isEqual:@"iPhone8,2"])      return kDeviceType_Iphone6SP;
-    if ([identifier isEqual:@"iPHone8.4"])      return kDeviceType_IphoneSE;
-    if ([identifier isEqual:@"iPHone9.1"])      return kDeviceType_Iphone7;
-    if ([identifier isEqual:@"iPHone9.2"])      return kDeviceType_Iphone7P;
+    if ([identifier isEqualToString:@"iPhone1,1"])      return kDeviceType_Iphone2G;
+    if ([identifier isEqualToString:@"iPhone1,2"])      return kDeviceType_Iphone3G;
+    if ([identifier isEqualToString:@"iPhone2,1"])      return kDeviceType_Iphone3GS;
+    if ([identifier isEqualToString:@"iPhone3,1"] || [identifier isEqualToString:@"iPhone3,2"] || [identifier isEqualToString:@"iPhone3,3"])      return kDeviceType_Iphone4;
+    if ([identifier isEqualToString:@"iPhone4,1"])      return kDeviceType_Iphone4S;
+    if ([identifier isEqualToString:@"iPhone5,1"] || [identifier isEqualToString:@"iPhone5,2"])      return kDeviceType_Iphone5;
+    if ([identifier isEqualToString:@"iPhone5,3"] || [identifier isEqualToString:@"iPhone5,4"])      return kDeviceType_Iphone5C;
+    if ([identifier isEqualToString:@"iPhone6,1"] || [identifier isEqualToString:@"iPhone6,2"])      return kDeviceType_Iphone5S;
+    if ([identifier isEqualToString:@"iPhone7,2"])      return kDeviceType_Iphone6;
+    if ([identifier isEqualToString:@"iPhone7,1"])      return kDeviceType_Iphone6P;
+    if ([identifier isEqualToString:@"iPhone8,1"])      return kDeviceType_Iphone6S;
+    if ([identifier isEqualToString:@"iPhone8,2"])      return kDeviceType_Iphone6SP;
+    if ([identifier isEqualToString:@"iPHone8.4"])      return kDeviceType_IphoneSE;
+    if ([identifier isEqualToString:@"iPHone9.1"] || [identifier isEqualToString:@"iPHone9.3"])      return kDeviceType_Iphone7;
+    if ([identifier isEqualToString:@"iPHone9.2"] || [identifier isEqualToString:@"iPHone9.4"])      return kDeviceType_Iphone7P;
+    if ([identifier isEqualToString:@"iPhone10,1"] || [identifier isEqualToString:@"iPhone10,4"])      return kDeviceType_Iphone8;
+    if ([identifier isEqualToString:@"iPhone10,2"] || [identifier isEqualToString:@"iPhone10,5"])      return kDeviceType_Iphone8P;
+    if ([identifier isEqualToString:@"iPhone10,3"] || [identifier isEqualToString:@"iPhone10,6"])      return kDeviceType_IphoneX;
     
     //Apple iPod touch
-    if ([identifier isEqual:@"iPod1,1"])      return kDeviceType_IpodTouch;
-    if ([identifier isEqual:@"iPod2,1"])      return kDeviceType_IpodTouch2G;
-    if ([identifier isEqual:@"iPod3,1"])      return kDeviceType_IpodTouch3G;
-    if ([identifier isEqual:@"iPod4,1"])      return kDeviceType_IpodTouch4G;
-    if ([identifier isEqual:@"iPod5,1"])      return kDeviceType_IpodTouch5G;
-    if ([identifier isEqual:@"iPod7,1"])      return kDeviceType_IpodTouch6G;
+    if ([identifier isEqualToString:@"iPod1,1"])      return kDeviceType_IpodTouch;
+    if ([identifier isEqualToString:@"iPod2,1"])      return kDeviceType_IpodTouch2G;
+    if ([identifier isEqualToString:@"iPod3,1"])      return kDeviceType_IpodTouch3G;
+    if ([identifier isEqualToString:@"iPod4,1"])      return kDeviceType_IpodTouch4G;
+    if ([identifier isEqualToString:@"iPod5,1"])      return kDeviceType_IpodTouch5G;
+    if ([identifier isEqualToString:@"iPod7,1"])      return kDeviceType_IpodTouch6G;
     
     //Apple UnknownDevices
     return kDeviceType_Unknown;
@@ -160,9 +172,12 @@
     if ([identifier isEqualToString:@"iPhone7,2"])    return @"iPhone 6";
     if ([identifier isEqualToString:@"iPhone8,1"])    return @"iPhone 6s";
     if ([identifier isEqualToString:@"iPhone8,2"])    return @"iPhone 6s Plus";
-    if ([identifier isEqualToString:@"iPHone8.4"])    return @"iPhone 6SE";
-    if ([identifier isEqualToString:@"iPHone9.1"])    return @"iPhone 7";
-    if ([identifier isEqualToString:@"iPHone9.2"])    return @"iPhone 7 Plus";
+    if ([identifier isEqualToString:@"iPHone8.4"])    return @"iPhone SE";
+    if ([identifier isEqualToString:@"iPHone9.1"] || [identifier isEqualToString:@"iPHone9.3"])    return @"iPhone 7";
+    if ([identifier isEqualToString:@"iPHone9.2"] || [identifier isEqualToString:@"iPHone9.4"])    return @"iPhone 7 Plus";
+    if ([identifier isEqualToString:@"iPhone10,1"] || [identifier isEqualToString:@"iPhone10,4"])      return @"iPhone 8";
+    if ([identifier isEqualToString:@"iPhone10,2"] || [identifier isEqualToString:@"iPhone10,5"])      return @"iPhone 8 Plus";
+    if ([identifier isEqualToString:@"iPhone10,3"] || [identifier isEqualToString:@"iPhone10,6"])      return @"iPhone X";
     
     
     if ([identifier isEqualToString:@"iPod1,1"])      return @"iPod Touch (1 Gen)";
@@ -174,7 +189,7 @@
     
     
     if ([identifier isEqualToString:@"iPad1,1"])      return @"iPad (WiFi)";
-    if ([identifier isEqualToString:@"iPad1,2"])      return @"iPad 3G";
+    //if ([identifier isEqualToString:@"iPad1,2"])      return @"iPad 3G";
     if ([identifier isEqualToString:@"iPad2,1"])      return @"iPad 2 (WiFi)";
     if ([identifier isEqualToString:@"iPad2,2"])      return @"iPad 2 (GSM)";
     if ([identifier isEqualToString:@"iPad2,3"])      return @"iPad 2 (CDMA)";
@@ -193,6 +208,36 @@
     if ([identifier isEqualToString:@"iPad4,3"])      return @"iPad Air (WiFi+CDMA)";
     if ([identifier isEqualToString:@"iPad4,4"])      return @"iPad Mini Retina (WiFi)";
     if ([identifier isEqualToString:@"iPad4,5"])      return @"iPad Mini Retina (WiFi+CDMA)";
+    if ([identifier isEqualToString:@"iPad6,7"] ||
+        [identifier isEqualToString:@"iPad6,8"] ||
+        [identifier isEqualToString:@"iPad6,3"] ||
+        [identifier isEqualToString:@"iPad7,3"] ||
+        [identifier isEqualToString:@"iPad6,3"] ||
+        [identifier isEqualToString:@"iPad7,4"] ||
+        [identifier isEqualToString:@"iPad7,1"] ||
+        [identifier isEqualToString:@"iPad7,2"])      return @"iPad Pro";
+    if ([identifier isEqualToString:@"iPad6,11"] ||
+        [identifier isEqualToString:@"iPad6,12"])     return @"iPad 5";
+    
+    if ([identifier isEqualToString:@"Watch1,1"] ||
+        [identifier isEqualToString:@"Watch1,2"] ||
+        [identifier isEqualToString:@"Watch2,6"] ||
+        [identifier isEqualToString:@"Watch2,7"] ||
+        [identifier isEqualToString:@"Watch2,3"] ||
+        [identifier isEqualToString:@"Watch2,4"] ||
+        [identifier isEqualToString:@"Watch3,1"] ||
+        [identifier isEqualToString:@"Watch3,2"] ||
+        [identifier isEqualToString:@"Watch3,3"] ||
+        [identifier isEqualToString:@"Watch3,4"])      return @"Apple Watch";
+    
+    if ([identifier isEqualToString:@"AppleTV2,1"] ||
+        [identifier isEqualToString:@"AppleTV3,1"] ||
+        [identifier isEqualToString:@"AppleTV3,2"] ||
+        [identifier isEqualToString:@"AppleTV5,3"] ||
+        [identifier isEqualToString:@"AppleTV6,2"])      return @"Apple TV";
+    
+    if ([identifier isEqualToString:@"AirPods1,1"]) return @"AirPod";
+    
     if ([identifier isEqualToString:@"i386"])         return @"Simulator";
     if ([identifier isEqualToString:@"x86_64"])       return @"Simulator";
     
@@ -225,8 +270,11 @@
     if ([identifier isEqualToString:@"iPhone8,1"])    return @"iPhone 6s";
     if ([identifier isEqualToString:@"iPhone8,2"])    return @"iPhone 6P";
     if ([identifier isEqualToString:@"iPHone8.4"])    return @"iPhone 6SE";
-    if ([identifier isEqualToString:@"iPHone9.1"])    return @"iPhone 7";
-    if ([identifier isEqualToString:@"iPHone9.2"])    return @"iPhone 7P";
+    if ([identifier isEqualToString:@"iPHone9.1"] || [identifier isEqualToString:@"iPHone9.3"])    return @"iPhone 7";
+    if ([identifier isEqualToString:@"iPHone9.2"] || [identifier isEqualToString:@"iPHone9.4"])    return @"iPhone 7P";
+    if ([identifier isEqualToString:@"iPhone10,1"] || [identifier isEqualToString:@"iPhone10,4"])      return @"iPhone 8";
+    if ([identifier isEqualToString:@"iPhone10,2"] || [identifier isEqualToString:@"iPhone10,5"])      return @"iPhone 8P";
+    if ([identifier isEqualToString:@"iPhone10,3"] || [identifier isEqualToString:@"iPhone10,6"])      return @"iPhone X";
     
     if ([identifier isEqualToString:@"iPod1,1"])      return @"iPod Touch 1G";
     if ([identifier isEqualToString:@"iPod2,1"])      return @"iPod Touch 2G";
@@ -255,6 +303,36 @@
     if ([identifier isEqualToString:@"iPad4,3"])      return @"iPad Air";
     if ([identifier isEqualToString:@"iPad4,4"])      return @"iPad Mini Retina";
     if ([identifier isEqualToString:@"iPad4,5"])      return @"iPad Mini Retina";
+    
+    if ([identifier isEqualToString:@"iPad6,7"] ||
+        [identifier isEqualToString:@"iPad6,8"] ||
+        [identifier isEqualToString:@"iPad6,3"] ||
+        [identifier isEqualToString:@"iPad7,3"] ||
+        [identifier isEqualToString:@"iPad6,3"] ||
+        [identifier isEqualToString:@"iPad7,4"] ||
+        [identifier isEqualToString:@"iPad7,1"] ||
+        [identifier isEqualToString:@"iPad7,2"])      return @"iPad Pro";
+    if ([identifier isEqualToString:@"iPad6,11"] ||
+        [identifier isEqualToString:@"iPad6,12"])     return @"iPad 5";
+    
+    if ([identifier isEqualToString:@"Watch1,1"] ||
+        [identifier isEqualToString:@"Watch1,2"] ||
+        [identifier isEqualToString:@"Watch2,6"] ||
+        [identifier isEqualToString:@"Watch2,7"] ||
+        [identifier isEqualToString:@"Watch2,3"] ||
+        [identifier isEqualToString:@"Watch2,4"] ||
+        [identifier isEqualToString:@"Watch3,1"] ||
+        [identifier isEqualToString:@"Watch3,2"] ||
+        [identifier isEqualToString:@"Watch3,3"] ||
+        [identifier isEqualToString:@"Watch3,4"])      return @"Apple Watch";
+    
+    if ([identifier isEqualToString:@"AppleTV2,1"] ||
+        [identifier isEqualToString:@"AppleTV3,1"] ||
+        [identifier isEqualToString:@"AppleTV3,2"] ||
+        [identifier isEqualToString:@"AppleTV5,3"] ||
+        [identifier isEqualToString:@"AppleTV6,2"])      return @"Apple TV";
+    
+    if ([identifier isEqualToString:@"AirPods1,1"]) return @"AirPod";
     
     if ([identifier isEqualToString:@"i386"])         return @"Simulator";
     if ([identifier isEqualToString:@"x86_64"])       return @"Simulator";

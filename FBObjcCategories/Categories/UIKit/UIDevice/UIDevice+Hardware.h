@@ -25,22 +25,34 @@ typedef NS_ENUM(NSUInteger,  kDeviceType){
     //Simulator
     kDeviceType_Simulator,
     
+    //AirPod
+    kDeviceType_AirPod,
+    //kDeviceType_AirPod_Right,
+    //kDeviceType_AirPod_Left,
+    //kDeviceType_AirPod_ChargingCase, //AirPod charging case
+    
     //Apple TV
-    kDeviceType_TV2G,
+    kDeviceType_TV2G, //2nd generation
     kDeviceType_TV3G,
     kDeviceType_TV4G,
+    kDeviceType_4K, //Aplle TV 4K
     
     //Apple Watch
-    kDeviceType_Watch,
+    kDeviceType_1G, //1st generation
+    kDeviceType_S1, //series 1
+    kDeviceType_S2,
+    kDeviceType_S3,
     
     //Apple iPad
     kDeviceType_Ipad,
     kDeviceType_Ipad2,
     kDeviceType_Ipad3,
     kDeviceType_Ipad4,
+    kDeviceType_Ipad5,
     kDeviceType_IpadAir,
     kDeviceType_IpadAir2,
     kDeviceType_IpadPro,
+    kDeviceType_IpadPro2,
     kDeviceType_IpadMini,
     kDeviceType_IpadMini2,
     kDeviceType_IpadMini3,
@@ -62,6 +74,9 @@ typedef NS_ENUM(NSUInteger,  kDeviceType){
     kDeviceType_IphoneSE,
     kDeviceType_Iphone7,
     kDeviceType_Iphone7P,
+    kDeviceType_Iphone8,
+    kDeviceType_Iphone8P,
+    kDeviceType_IphoneX,
     
     //Apple iPod touch
     kDeviceType_IpodTouch,
